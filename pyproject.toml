@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gcode-guard"
+version = "0.1.0"
+description = "G 代码静态检查：进给/主轴/行程/圆弧规则校验 | Static checker for CNC G-code programs"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "aoyexiaoqi"}]
+requires-python = ">=3.9"
+keywords = ["gcode", "cnc", "static-analysis", "machining", "quality"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Natural Language :: Chinese (Simplified)",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+gcode-guard = "gcode_guard.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/aoyexiaoqi/gcode-guard"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
